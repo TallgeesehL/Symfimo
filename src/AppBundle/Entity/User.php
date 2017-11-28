@@ -10,11 +10,35 @@ use Doctrine\ORM\Mapping as ORM;
 class User{
   use IdTrait;
 
+  /**
+  * @ORM\ManyToOne(targetEntity="Estate")
+  */
+  private $estate;
+
+  /**
+  * @ORM\Column()
+  */
   private $email;
+
+  /**
+  * @ORM\Column()
+  */
   private $firstname;
+
+  /**
+  * @ORM\Column()
+  */
   private $lastname;
-  private $lastname;
+
+
+  /**
+  * @ORM\Column()
+  */
   private $password;
+
+  /**
+  * @ORM\Column()
+  */
   private $role;
 
 
@@ -38,17 +62,6 @@ public function setFirstname($firstname)
 public function getFirstname()
 {
    return $this->firstname;
-}
-
-public function setLastname($lastname)
-{
-   $this->lastname = $lastname;
-   return $this;
-}
-
-public function getLastname()
-{
-   return $this->lastname;
 }
 
 public function setLastname($lastname)

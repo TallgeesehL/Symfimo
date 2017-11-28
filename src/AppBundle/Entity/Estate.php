@@ -9,23 +9,101 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Estate{
   use IdTrait;
-  private $id;
+
+  /**
+  * @ORM\OneToOne(targetEntity="Type")
+  */
+  private $type;
+
+  /**
+  * @ORM\ManyToOne(targetEntity="Photo")
+  */
+  private $photo;
+
+  /**
+  * @ORM\ManyToMany(targetEntity="Option")
+  */
+  private $options;
+
+  /**
+  * @ORM\Column()
+  */
   private $title;
+
+  /**
+  * @ORM\Column()
+  */
   private $description;
+
+  /**
+  * @ORM\Column()
+  */
   private $address;
+
+  /**
+  * @ORM\Column()
+  */
   private $zip;
+
+  /**
+  * @ORM\Column()
+  */
   private $city;
+
+  /**
+  * @ORM\Column()
+  */
   private $country;
+
+  /**
+  * @ORM\Column()
+  */
   private $dpe;
+
+  /**
+  * @ORM\Column()
+  */
   private $ges;
+
+  /**
+  * @ORM\Column()
+  */
   private $rooms;
+
+  /**
+  * @ORM\Column()
+  */
   private $bedrooms;
+
+  /**
+  * @ORM\Column()
+  */
   private $surface;
+
+  /**
+  * @ORM\Column()
+  */
   private $groundSurface;
+
+  /**
+  * @ORM\Column()
+  */
   private $created;
 
 
+  public function __construct(){
+    $this->options = new ArrayCollection();
+  }
 
+  public function addGenre(Genre $option){
+  if (!$this->options->contains($option)) {
+    $this->options->add($option);
+  }
+  }
+
+  public function removeGenre(Genre $option){
+    $this->options->removeEmelent($option);
+  }
 
 public function setId($id)
 {

@@ -9,7 +9,15 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Option{
   use IdTrait;
+
+  /**
+  * @ORM\Column()
+  */
   private $name;
+
+  /**
+  * @ORM\Column()
+  */
   private $uri;
 
 

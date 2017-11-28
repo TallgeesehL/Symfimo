@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Type{
   use IdTrait;
+
+  /**
+  * @ORM\Column()
+  */
   private $name;
 
 public function setName($name)
