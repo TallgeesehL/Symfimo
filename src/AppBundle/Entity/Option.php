@@ -9,9 +9,31 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Option{
   use IdTrait;
-
   private $name;
-  private $url;
+  private $uri;
 
+
+
+public function setName($name)
+{
+   $this->name = $name;
+   return $this;
+}
+
+public function getName()
+{
+   return $this->name;
+}
+
+public function setUri($uri)
+{
+   $this->uri = $uri;
+   return $this;
+}
+
+public function getUri()
+{
+   return $this->uri;
+}
 
 }

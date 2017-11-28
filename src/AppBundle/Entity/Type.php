@@ -9,9 +9,17 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Type{
   use IdTrait;
-
   private $name;
 
+public function setName($name)
+{
+   $this->name = $name;
+   return $this;
+}
 
+public function getName()
+{
+   return $this->name;
+}
 
 }
