@@ -11,6 +11,11 @@ class Photo{
   use IdTrait;
 
   /**
+  * @ORM\ManyToOne(targetEntity="Estate")
+  */
+  private $estate;
+
+  /**
   * @ORM\Column()
   */
   private $name;

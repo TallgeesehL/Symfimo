@@ -9,16 +9,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Estate{
   use IdTrait;
+  /**
+  * @ORM\ManyToOne(targetEntity="User")
+  */
+  private $user;
 
   /**
   * @ORM\OneToOne(targetEntity="Type")
   */
   private $type;
 
-  /**
-  * @ORM\ManyToOne(targetEntity="Photo")
-  */
-  private $photo;
 
   /**
   * @ORM\ManyToMany(targetEntity="Option")
